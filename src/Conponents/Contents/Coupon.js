@@ -2,7 +2,8 @@ import React from "react";
 import styled from "styled-components";
 import Fade from "react-reveal/Fade";
 import egg from "../../img/egg.png";
-import broken_egg from "../../img/broken.png";
+//import broken_egg from "../../img/broken.png";
+import Popup from "./Popup";
 
 const Coupon_block = styled.div`
     margin-top: 50%;
@@ -15,18 +16,19 @@ const Coupon_block = styled.div`
 `;
 
 const changePic = () => {
-    document.getElementById("event_img").src = {broken_egg};
-    setTimeout(showPopup, 1000);
+    document.getElementById('event_img').src = '/static/media/broken.e234d4dd.png';
+    //alert(document.getElementById('event_img').src);
+    setTimeout(showPopup, 500);
 }
 
 const showPopup = () => {
-    var uri = "Popup.html";
-    var width = 300;
-    var height = 150;
+    var url = "Popup.html";
+    var width = 400;
+    var height = 550;
     var center_left = (document.body.offsetWidth/2) - (width/2);
     var center_top = (document.body.offsetHeight/6) - (height/2);
-    var option = "width=" + width + ", height=" + height + ", left=" + center_left + ", top=" + center_top 
-    window.open(uri, "coupon", option);
+    var option = "width=" + width + ", height=" + height + ", left=" + center_left + ", top=" + center_top + ", scrollbars=no"; 
+    window.open(url, "coupon", option);
 }
 
 const Coupon = () => {
