@@ -2,7 +2,8 @@ import React from "react";
 import styled from "styled-components";
 import Fade from "react-reveal/Fade";
 import egg from "../../img/egg.png";
-import broken_egg from "../../img/broken.png";
+import KakaoShareButton from "./KakaoShareButton";
+import {Helmet} from 'react-helmet'
 
 const Coupon_block = styled.div`
     margin-top: 50%;
@@ -15,18 +16,19 @@ const Coupon_block = styled.div`
 `;
 
 const changePic = () => {
-    document.getElementById("event_img").src = {broken_egg};
-    setTimeout(showPopup, 1000);
+    document.getElementById('event_img').src = '/static/media/broken.e234d4dd.png';
+    alert(document.getElementById('event_img').src);
+    setTimeout(showPopup, 500);
 }
 
 const showPopup = () => {
-    var uri = "Popup.html";
-    var width = 300;
-    var height = 150;
+    var url = "Popup.html";
+    var width = 400;
+    var height = 550;
     var center_left = (document.body.offsetWidth/2) - (width/2);
     var center_top = (document.body.offsetHeight/6) - (height/2);
-    var option = "width=" + width + ", height=" + height + ", left=" + center_left + ", top=" + center_top 
-    window.open(uri, "coupon", option);
+    var option = "width=" + width + ", height=" + height + ", left=" + center_left + ", top=" + center_top + ", scrollbars=no"; 
+    window.open(url, "coupon", option);
 }
 
 const Coupon = () => {
@@ -36,12 +38,16 @@ const Coupon = () => {
 
     return (
         <div>
+            <Helmet>
+                <script src="https://developers.kakao.com/sdk/js/kakao.min.js"></script>
+            </Helmet>
             <Fade bottom>
                 <Coupon_block>
                     <h3>알이 도착했습니다!</h3>
                     <img onClick={changePic} id="event_img" src={egg}/><br />
                     <h3>알을 까고 브릿지 카페</h3>
                     <h3>쿠폰을 획득하세요!</h3>
+                    <KakaoShareButton/>
                 </Coupon_block>
             </Fade>
         </div>
