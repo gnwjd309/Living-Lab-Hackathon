@@ -1,5 +1,4 @@
-import React, { useEffect } from 'react';
-import kakaoImage from "../../img/kakao.png";
+import { useEffect } from 'react';
 
 const KakaoShareButton = () => {
   useEffect(() => {
@@ -11,7 +10,7 @@ const KakaoShareButton = () => {
       const kakao = window.Kakao
       // 중복 initialization 방지
       if (!kakao.isInitialized()) {
-        kakao.init('KAKAO_API_KEY')
+        kakao.init('API_KEY')
       }
       kakao.Link.createDefaultButton({
         container: '#kakao-link-btn',

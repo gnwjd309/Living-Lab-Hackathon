@@ -25,7 +25,7 @@ const Footer = () => {
       <FooterText>
         <strong>
           ... Made by Hoojeong ... <br />
-          ...   So hard hhhh   ...
+          ...   v2.0   ...
         </strong>
       </FooterText>
     </Block>

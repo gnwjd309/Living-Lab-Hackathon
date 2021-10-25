@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Coupon</title>
+    <script src="https://developers.kakao.com/sdk/js/kakao.min.js"></script>
+</head>
+
+<body>
+    <div style="text-align: center;">
+        <h2>Show Coupon Popup</h2>
+    <h3>친구에게 공유하고 한 번 더 도전해보세요!</h3>
+    <script type="text/javascript">
+        function KakaoShareButton() {
+            window.Kakao.init('11fe89c0d213e4d0087e1fab1aeeb7c4');
+            console.log(window.Kakao.isInitialized());
+
+            window.Kakao.Link.createDefaultButton({
+                container: '#kakao-link-btn',
+                objectType: 'feed',
+                content: {
+                    title: '타이틀',
+                    description: '#리액트 #카카오 #공유버튼',
+                    imageUrl: 'IMAGE_URL',
+                    link: {
+                        mobileWebUrl: window.location.href,
+                        webUrl: window.location.href,
+                    },
+                },
+                social: {
+                    likeCount: 77,
+                    commentCount: 55,
+                    sharedCount: 333,
+                },
+                buttons: [
+                    {
+                        title: '웹으로 보기',
+                        link: {
+                            mobileWebUrl: window.location.href,
+                            webUrl: window.location.href,
+                        },
+                    },
+                    {
+                        title: '앱으로 보기',
+                        link: {
+                            mobileWebUrl: window.location.href,
+                            webUrl: window.location.href,
+                        },
+                    },
+                ],
+            })
+        }
+        document.getElementById("kakao-link-btn").onclick = KakaoShareButton();
+    </script>
+    <button id="kakao-link-btn">share</button>
+    <input type="button" value="다음에 하기" onclick="self.close()" />
+    </div>
+</body>
+
+</html>

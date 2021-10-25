@@ -1,14 +1,14 @@
-import './App.css';
-import MainContainer from "./Containers/MainContainer";
-import Footer from "./Conponents/Footer/Footer";
-import firebaseInit from "./firebase";
+import { BrowserRouter, Route } from 'react-router-dom';
+import CouponContents from "./inc/CouponContents"
+import Main from "./inc/Main"
 
 function App() {
-  console.log(firebaseInit);
   return (
-    <div className="App">
-      <MainContainer />
-      <Footer />
+    <div>
+      <BrowserRouter>
+        <Route path="/" component={Main} exact />
+        <Route path="/Coupon" component={CouponContents} />
+      </BrowserRouter>
     </div>
   )
 }
